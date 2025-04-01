@@ -37,7 +37,7 @@ public class LoginUserTest extends BaseTest {
         loginPO.enterLoginDetails(loginUserDO);
 
         Allure.step("Step 5: Verify that user is logged in with correct user.");
-        Assert.assertTrue(commonPO.isWelcomeContentDisplayed(), "User is not logged with correct user!");
+        Assert.assertTrue(commonPO.isWelcomeContentDisplayed(), "User is not logged with correct user!!!");
     }
 
     @Test(priority = 2)
