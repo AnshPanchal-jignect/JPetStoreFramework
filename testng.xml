@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/ansh/IdeaProjects/PetStorePracticeTraining">
+        <classes>
+            <class name="login.LoginUserTest">
+                <methods>
+                    <include name="verifyThatUserIsLoggedInWhenUserEnterValidCredentials"/>
+                    <include name="verifyThatUserIsNotAbleToLoginWhenUserEnterInValidCredentials"/>
+                </methods>
+            </class>
+            <class name="logout.LogoutUserTest">
+                <methods>
+                    <include name="verifyThatUserAbleToLogoutWhenUserClickOnLogoutLink"/>
+                </methods>
+            </class>
+            <class name="orderpet.MultipleOrderPetTest">
+                <methods>
+                    <include name="verifyThatUserIsAbleToOrderMultiplePetProductSuccessfully"/>
+                </methods>
+            </class>
+            <class name="orderpet.SingleProductPetTest">
+                <methods>
+                    <include name="verifyThatUserIsAbleToOrderThePetProductSuccessfully"/>
+                    <include name="verifyThatUserIsAbleToUpdateTheQuantityAndOrderThePetProductSuccessfully"/>
+                    <include name="verifyThatUserIsAbleToRemoveTheProductFromCartSuccessfully"/>
+                </methods>
+            </class>
+            <class name="registration.RegistrationTest">
+                <methods>
+                    <include name="verifyThatUserRegisterSuccessfully"/>
+                    <include name="VerifyThatValidationMessageIsDisplayedWhenUserClickOnSaveAccountInformationButton"/>
+                </methods>
+            </class>
+            <class name="search.SearchPetTest">
+                <methods>
+                    <include name="verifyThatPetsListIsDisplayedWhenUserClickOnSearch"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
