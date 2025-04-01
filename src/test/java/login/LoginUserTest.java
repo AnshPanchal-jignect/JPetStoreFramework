@@ -24,23 +24,18 @@ public class LoginUserTest extends BaseTest {
         LoginUserDo loginUserDO = new LoginUserData().getValidLoginData();
         CommonPO commonPO = new CommonPO(driver);
 
-//        Reporter.log("Step 1. Navigate to URl.");
         Allure.step("Step 1. Navigate to URl.");
         seleniumHelpers.navigateToPage(Constants.URL);
 
-//        Reporter.log("Step 2: Click on the 'Sign In' link");
         Allure.step("Step 2: Click on the 'Sign In' link");
         headerPO.clickOnSignInLink();
 
-//        Reporter.log("Step 3 - Verify that User navigate to the Sign-In Page");
         Allure.step("Step 3 - Verify that User navigate to the Sign In Page");
         Assert.assertTrue(loginPO.isLoginPageTextDisplayed(), Constants.USER_NOT_LOGGED_IN);
 
-//        Reporter.log("Step 4: Enter valid username and password, then click on submit");
         Allure.step("Step 4: Enter valid username and password, then click on submit");
         loginPO.enterLoginDetails(loginUserDO);
 
-//        Reporter.log("Step 5: Verify that user is logged in with correct user.");
         Allure.step("Step 5: Verify that user is logged in with correct user.");
         Assert.assertTrue(commonPO.isWelcomeContentDisplayed(), "User is not logged with correct user!");
     }
@@ -53,23 +48,18 @@ public class LoginUserTest extends BaseTest {
         LoginUserDo loginUserDo = new LoginUserData().getInvalidLoginData();
         LoginPO loginPO = new LoginPO(driver);
 
-//        Reporter.log("Step 1. Navigate to URl.");
         Allure.step("Step 1. Navigate to URl.");
         seleniumHelpers.navigateToPage(Constants.URL);
 
-//        Reporter.log("Step 2: Click on the 'Sign In' link");
         Allure.step("Step 2: Click on the 'Sign In' link");
         headerPO.clickOnSignInLink();
 
-//        Reporter.log("Step 3 - Verify that User navigate to the Sign-In Page");
         Allure.step("Step 3 - Verify that User navigate to the Sign In Page");
         Assert.assertTrue(loginPO.isLoginPageTextDisplayed(), Constants.USER_NOT_LOGGED_IN);
 
-//        Reporter.log("Step 4: Enter Invalid username and password, then click on submit");
         Allure.step("Step 4: Enter Invalid username and password, then click on submit.");
         loginPO.enterLoginDetails(loginUserDo);
 
-//        Reporter.log("Step 5: Verify error message is displayed");
         Allure.step("Step 5: Verify that error message is displayed.");
         Assert.assertTrue(loginPO.isLoginErrorMessageDisplayed(),"Error message not displayed for invalid login attempt.");
 
