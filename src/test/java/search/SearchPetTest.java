@@ -9,7 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.common.CommonPO;
 import pageobjects.header.HeaderPO;
-import pageobjects.home.HomePagePO;
 import pageobjects.login.LoginPO;
 import pageobjects.petlisting.PetListingPO;
 import utilities.Constants;
@@ -59,53 +58,5 @@ public class SearchPetTest extends BaseTest {
         Allure.step("Step 8: Verify the pet catalog starts with '" + expectedProductId+"'");
         Assert.assertTrue(actualProductId.stream().allMatch(s -> s.startsWith(expectedProductId)),
                 "Not all elements start with " + expectedProductId + " for search: " + petNameSearch);
-        /*
-        // Pet prefixes for different pet categories
-        Map<String, String> petPrefixes = Map.of(
-                "Fish", "FI-",
-                "Dogs", "DG-",
-                "Reptiles", "RP-",
-                "Cats", "CT-",
-                "Birds", "BD-"
-        );
-        // List to capture failed assertions
-        List<String> failedAssertions = new ArrayList<>();
-        Allure.step("Step 6: Verify that pets are displayed when user search for pet.");
-        petPrefixes.forEach((petCategory, expectedValue) -> {
-            HeaderDO headerDO = new HeaderDO();
-            Allure.step("Step 7: Enter the '" + petCategory + "' in the search bar and click on 'Search' button.");
-            headerDO.setInputSearchField(petCategory);
-            // Perform search
-            try {
-                headerPO.searchProduct(headerDO);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("Key: " + petCategory);
-            System.out.println("Value: " + expectedValue);
-            Allure.step("Step 8: Verify that pets are displayed.");
-            // Get actual product names
-            List<String> actualValues = petCatalogListingPO.listOfActualPets();
-
-            // Ensure the list is not empty
-            if (actualValues.isEmpty()) {
-                String errorMessage = "No products found for search: " + petCategory;
-                System.out.println(errorMessage);
-                failedAssertions.add(errorMessage);
-            } else {
-                Assert.assertTrue(actualValues.stream().allMatch(s -> s.startsWith(expectedValue)),
-                        "Not all elements start with " + expectedValue + " for search: " + petCategory);
-
-
-                Allure.step("Step: Verify that 'Return to Menu Link' is displayed.");
-                String actualValueReturnMenuLink = petCatalogListingPO.getTextForReturnMenuLink();
-                String expectedValueReturnMenuLink = "Return to Main Menu";
-                Assert.assertEquals(actualValueReturnMenuLink, expectedValueReturnMenuLink, "Return to Main Menu Link is not displayed");
-            }
-        });
-        if (!failedAssertions.isEmpty()) {
-            Assert.fail("Test failed due to the following errors:\n" + String.join("\n", failedAssertions));
-        }
-*/
     }
 }
